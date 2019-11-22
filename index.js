@@ -1,38 +1,38 @@
-// Import express
+// Importamos express
 let express = require('express');
-// Import Body parser
+// Importamos Body Parser
 let bodyParser = require('body-parser');
-// Import Mongoose
+// Importamos Mongoose
 let mongoose = require('mongoose');
-// Initialise the app
+// Se inicializa la applicacion
 let app = express();
 
-// Import routes
+// Importamos rutas
 let apiRoutes = require("./api-routes");
-// Configure bodyparser to handle post requests
+// Configuramos bodyparser para manejar los post request
 app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(bodyParser.json());
-// Connect to Mongoose and set connection variable
+// Connectamos mongoose a la base de datos
 mongoose.connect('mongodb://localhost/resthub', { useNewUrlParser: true,useUnifiedTopology: true});
 var db = mongoose.connection;
 
-// Added check for DB connection
+// agregamos validacion si la base de datos esta activa
 if(!db)
-    console.log("Error connecting db")
+    console.log("Error al conectarse")
 else
-    console.log("Db connected successfully")
+    console.log("Base de datos conectada Satisfactoriamente!!!")
 
-// Setup server port
+// Configuramos el puerto de salida de la aplicacion
 var port = process.env.PORT || 8080;
 
-// Send message for default URL
-app.get('/', (req, res) => res.send('Hello World with Express'));
+// Mandamos mensaje si se conecta a la raiz del proyecto ejemplo http://localhost:8080
+app.get('/', (req, res) => res.send('Hola mundo desde la raiz'));
 
-// Use Api routes in the App
+// Usamos Ruteo en la aplicacion
 app.use('/api', apiRoutes);
-// Launch app to listen to specified port
+// Lanzamos el puerto que esta escuchando la aplicacion
 app.listen(port, function () {
-    console.log("Running RestHub on port " + port);
+    console.log("Ejecutando RestApi en el puerto " + port);
 });
