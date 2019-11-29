@@ -4,8 +4,8 @@ let router = require('express').Router();
 // Seteamos ruta Principal /api/
 router.get('/', function (req, res) {
     res.json({
-        status: 'API Its Working',
-        message: 'Welcome to RESTHub crafted with love!',
+        status: 'Api trabajando para usted',
+        message: 'Bienvenido a la raiz API',
     });
 });
 // importamos Controlador
