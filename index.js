@@ -28,8 +28,8 @@ function (req, res, next) {
     next();
 });
 // Connectamos mongoose a la base de datos
-mongoose.connect('mongodb://localhost/resthub', { useNewUrlParser: true,useUnifiedTopology: true});
-//mongoose.connect('mongodb+srv://Admin:Rivera02022010@cluster0-fz9tp.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true,useUnifiedTopology: true})
+//mongoose.connect('mongodb://localhost/resthub', { useNewUrlParser: true,useUnifiedTopology: true});
+mongoose.connect('mongodb+srv://Admin:Rivera02022010@cluster0-fz9tp.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true,useUnifiedTopology: true})
 var db = mongoose.connection;
 
 // agregamos validacion si la base de datos esta activa
