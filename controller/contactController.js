@@ -45,7 +45,7 @@ exports.view = function (req, res) {
 };
 // Handle update contact info
 exports.update = function (req, res) {
-    Contact.findById(eq.params.contact_id, function (err, contact) {
+    Contact.findById(req.params.contact_id, function (err, contact) {
         if (err)
             res.send(err);
         contact.name = req.body.name ? req.body.name : contact.name;
