@@ -10,7 +10,7 @@ router.get('/', function (req, res) {
 });
 // importamos Controlador
 var contactController = require('./controller/contactController');
-// Rutas de contacto
+// Rutas de contacto test
 router.route('/contacts')
     .get(contactController.index)
     .post(contactController.new);
